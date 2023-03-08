@@ -7,5 +7,7 @@ useHead({
 <template>
   <div>
     <PageHeader title="Library" />
+
+    <LibraryDashboard />
   </div>
 </template>

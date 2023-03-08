@@ -1,0 +1,22 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: magna
+    src: web.space
+    engine: nuxt
+    primary: true
+
+  - name: scraper-pybs4
+    src: ./scrapers/pybs4
+    path: scrapers-pybs4
+    engine: python3.9
+
+  - name: internal-api
+    src: ./internal-api
+    engine: nodejs16
+    path: internal-api
+    commands:
+      - npm run build
+    include:
+      - dist
+    run: "node dist/main.js"
