@@ -47,15 +47,13 @@ useHead({
         </div>
       </PageHeader>
 
-      <hr class="my-6" />
-
-      <ul class="w-1/2 mx-auto py-6">
+      <ul class="w-11/12 md:w-3/5 lg:w-1/2 mx-auto py-6">
         <li v-for="item in data.data?.images" class="w-full h-full">
           <img
             referrerpolicy="no-referrer"
             :src="item.replace('http://', 'https://')"
             :alt="item.replace('http://', 'https://')"
-            class="w-full h-full object-cover rounded-lg bg-gray-100"
+            class="w-full h-full object-cover bg-gray-100"
           />
         </li>
       </ul>

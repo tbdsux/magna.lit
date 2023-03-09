@@ -15,7 +15,7 @@ const { data, pending } = useLazyAsyncData(
 <template>
   <div class="p-8">
     <div v-if="!pending">
-      <div class="grid grid-cols-5 gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-8">
         <NuxtLink
           v-for="item in data"
           :to="`/library/${item.key}`"
@@ -40,7 +40,7 @@ const { data, pending } = useLazyAsyncData(
     </div>
 
     <div v-else>
-      <div class="grid grid-cols-5 gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-8">
         <div
           v-for="i in Array(5).keys()"
           class="h-72 bg-gray-200 rounded-lg animate-pulse"

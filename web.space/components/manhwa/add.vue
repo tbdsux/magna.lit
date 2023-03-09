@@ -72,7 +72,7 @@ watch(selectedSource, (newsrc, oldsrc) => {
   <div>
     <button
       @click="openModal"
-      class="inline-flex items-center bg-blue-400 hover:bg-blue-500 text-white duration-300 py-2 px-8 rounded-xl"
+      class="inline-flex items-center bg-blue-400 hover:bg-blue-500 text-white duration-300 py-1 lg:py-2 px-6 lg:px-8 rounded-xl"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ watch(selectedSource, (newsrc, oldsrc) => {
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-5 h-5"
+        class="w-4 lg:w-5 h-4 lg:h-5"
       >
         <path
           stroke-linecap="round"
@@ -89,15 +89,17 @@ watch(selectedSource, (newsrc, oldsrc) => {
         />
       </svg>
 
-      <small class="ml-2">Add Manhwa</small>
+      <small class="ml-2 text-xs xl:text-[0.825rem]">Add Manhwa</small>
     </button>
   </div>
 
   <Modal :open="open" @closeModal="closeModal">
     <DialogPanel
-      class="w-full max-w-5xl min-h-screen transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+      class="w-full max-w-5xl min-h-[32rem] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
     >
-      <div class="flex items-center justify-between">
+      <div
+        class="flex flex-col md:flex-row items-start md:items-center justify-between"
+      >
         <div>
           <DialogTitle
             as="h3"
@@ -112,13 +114,13 @@ watch(selectedSource, (newsrc, oldsrc) => {
           </div>
         </div>
 
-        <div class="">
+        <div class="w-full md:w-auto mt-3 md:mt-0">
           <label for="sources" class="text-xs">Sources</label>
 
           <Listbox v-model="selectedSource">
             <div class="relative mt-1">
               <ListboxButton
-                class="relative w-72 cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 text-[0.825rem]"
+                class="relative w-full md:w-72 cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 text-[0.825rem]"
               >
                 <span class="block truncate">{{ selectedSource.name }}</span>
                 <span
@@ -179,7 +181,7 @@ watch(selectedSource, (newsrc, oldsrc) => {
           <label for="query" class="text-[0.825rem] text-gray-700"
             >Search Query</label
           >
-          <div class="flex items-stretch">
+          <div class="flex flex-col md:flex-row items-stretch">
             <input
               v-model="inputQuery"
               type="text"
@@ -190,11 +192,14 @@ watch(selectedSource, (newsrc, oldsrc) => {
             <button
               @click="searchManhwas"
               :disabled="searching"
-              class="inline-flex items-center py-2 px-6 rounded-lg ml-2 bg-blue-400 hover:bg-blue-500 text-white duration-300"
+              class="inline-flex items-center justify-center w-36 md:w-auto mx-auto mt-2 md:mt-0 py-2 px-6 rounded-lg md:ml-2 bg-blue-400 hover:bg-blue-500 text-white duration-300"
             >
-              <MagnifyingGlassIcon aria-hidden="true" class="h-5 w-5" />
+              <MagnifyingGlassIcon
+                aria-hidden="true"
+                class="h-4 lg:h-5 w-4 lg:w-5"
+              />
 
-              <small class="ml-2">
+              <small class="ml-2 text-xs lg:text-[0.825rem]">
                 <span v-if="searching">Searching...</span>
                 <span v-else>Search</span>
               </small>
@@ -207,27 +212,29 @@ watch(selectedSource, (newsrc, oldsrc) => {
             <small>Searching...</small>
           </div>
 
-          <div v-else class="grid grid-cols-4 gap-6">
-            <ManhwaViewInfo
-              v-for="result in searchData"
-              :title="result.title"
-              :image="result.image"
-              :url="result.url"
-              :slug="result.slug"
-              :source="selectedSource.source"
-            />
+          <div v-else>
+            <div v-if="searchData.length == 0">
+              <small
+                >Add a search query and make select an available
+                <strong>source</strong> from the list above...</small
+              >
+            </div>
+
+            <div
+              v-else
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+            >
+              <ManhwaViewInfo
+                v-for="result in searchData"
+                :title="result.title"
+                :image="result.image"
+                :url="result.url"
+                :slug="result.slug"
+                :source="selectedSource.source"
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="mt-4">
-        <button
-          type="button"
-          class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          @click="closeModal"
-        >
-          Got it, thanks!
-        </button>
       </div>
     </DialogPanel>
   </Modal>

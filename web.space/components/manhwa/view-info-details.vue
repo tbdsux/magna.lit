@@ -71,8 +71,8 @@ const addManhwa = async () => {
   <span v-if="pending"> Loading... </span>
 
   <div v-else>
-    <div class="flex items-start justify-between">
-      <div class="h-72 w-auto">
+    <div class="flex flex-col md:flex-row items-start justify-between">
+      <div class="h-72 w-48">
         <img
           referrerpolicy="no-referrer"
           :src="data?.data?.image"
@@ -81,7 +81,7 @@ const addManhwa = async () => {
         />
       </div>
 
-      <div class="w-3/4">
+      <div class="w-full md:ml-6 mt-4 md:mt-0">
         <DialogTitle
           as="h3"
           class="text-lg font-medium leading-6 text-gray-800"
@@ -89,7 +89,7 @@ const addManhwa = async () => {
           {{ data?.data?.title }}
         </DialogTitle>
 
-        <ul class="flex items-center">
+        <ul class="flex flex-wrap items-center">
           <li v-for="item in data?.data?.authors" class="m-0.5 text-gray-500">
             <small> @{{ item }} </small>
           </li>
@@ -101,7 +101,7 @@ const addManhwa = async () => {
           </p>
         </div>
 
-        <ul class="flex items-center">
+        <ul class="flex flex-wrap items-center">
           <li
             class="py-0.5 m-0.5 px-2 bg-gray-300 text-gray-700 rounded-lg"
             v-for="item in data?.data?.genres"
@@ -112,7 +112,7 @@ const addManhwa = async () => {
           </li>
         </ul>
 
-        <div class="mt-6 inline-flex items-center">
+        <div class="mt-6 inline-flex flex-wrap items-center">
           <button
             v-if="
               store.isUIDExists(genUID(data?.data?.title ?? '', props.source))

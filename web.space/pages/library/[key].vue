@@ -31,10 +31,12 @@ watch(data, (newData) => {
 <template>
   <div class="p-12">
     <div v-if="pending">
-      <div class="flex items-stretch">
-        <div class="h-72 w-1/4 bg-gray-200 animate-pulse rounded-lg"></div>
+      <div class="flex flex-col md:flex-row items-stretch">
+        <div class="h-72 w-48 bg-gray-200 animate-pulse rounded-lg"></div>
 
-        <div class="w-full ml-6 bg-gray-200 rounded-lg animate-pulse"></div>
+        <div
+          class="w-full h-96 mt-4 md:mt-0 md:ml-6 bg-gray-200 rounded-lg animate-pulse"
+        ></div>
       </div>
 
       <hr class="my-12" />
@@ -48,8 +50,8 @@ watch(data, (newData) => {
     </div>
 
     <div v-else>
-      <div class="flex items-start">
-        <div class="h-72 w-auto">
+      <div class="flex flex-col md:flex-row items-start justify-center">
+        <div class="h-72 w-auto md:w-64">
           <img
             referrerpolicy="no-referrer"
             :src="data?.manga.image"
@@ -58,12 +60,12 @@ watch(data, (newData) => {
           />
         </div>
 
-        <div class="w-3/4 ml-6">
+        <div class="w-full md:ml-6 mt-4 md:mt-0">
           <h3 class="text-lg font-medium leading-6 text-gray-800">
             {{ data?.manga.title }}
           </h3>
 
-          <ul class="flex items-center">
+          <ul class="flex flex-wrap items-center">
             <li v-for="item in data?.manga.authors" class="m-0.5 text-gray-500">
               <small> @{{ item }} </small>
             </li>
@@ -75,7 +77,7 @@ watch(data, (newData) => {
             </p>
           </div>
 
-          <ul class="flex items-center">
+          <ul class="flex flex-wrap items-center">
             <li
               class="py-0.5 m-0.5 px-2 bg-gray-300 text-gray-700 rounded-lg"
               v-for="item in data?.manga.genres"

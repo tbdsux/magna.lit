@@ -11,6 +11,7 @@ specifiers:
   pinia: ^2.0.32
   postcss: ^8.4.21
   tailwindcss: ^3.2.4
+  vue-window-size: ^2.0.0
   vue3-toastify: ^0.1.1
 
 dependencies:
@@ -19,6 +20,7 @@ dependencies:
   '@pinia/nuxt': 0.4.7
   buffer: 6.0.3
   pinia: 2.0.32
+  vue-window-size: 2.0.0
   vue3-toastify: 0.1.1
 
 devDependencies:
@@ -4745,6 +4747,12 @@ packages:
       '@vue/devtools-api': 6.5.0
       vue: 3.2.45
     dev: true
+
+  /vue-window-size/2.0.0:
+    resolution: {integrity: sha512-Bx3O7gC71wWSfoY7XMHY4+sP1YKmXGaWkMtpSLy8JlItr1VVp5US65KPIyOSyZMZD1gcr0abaFuiQy+zL45q8A==}
+    peerDependencies:
+      vue: ^3.0 || ^2.7
+    dev: false
 
   /vue/3.2.45:
     resolution: {integrity: sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA==}

@@ -1,15 +1,56 @@
-<template>
-  <nav class="py-4 w-1/6 mr-auto h-screen border-r fixed">
-    <div class="w-11/12 mx-auto text-center">
-      <h1 class="tracking-wide text-lg font-bold text-gray-700">
-        <span class="text-blue-500">magna</span>.lit
-      </h1>
+<script setup lang="ts">
+import { useWindowSize } from "vue-window-size";
 
-      <div class="mt-10">
+const isOpen = useState("mobileOpen", () => true);
+
+const { width } = useWindowSize();
+
+watch(width, (newWidth) => {
+  if (newWidth >= 768) {
+    isOpen.value = true;
+  }
+});
+</script>
+
+<template>
+  <nav
+    class="py-4 w-full lg:w-1/5 xl:w-1/6 mr-auto lg:h-screen lg:border-r lg:fixed"
+  >
+    <div
+      class="w-11/12 mx-auto text-center md:flex items-center justify-between lg:block"
+    >
+      <div class="flex w-full items-center justify-between lg:justify-center">
+        <h1 class="tracking-wide text-lg font-bold text-gray-700">
+          <span class="text-blue-500">magna</span>.lit
+        </h1>
+
+        <button title="Menu" @click="isOpen = !isOpen" class="md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        v-if="isOpen"
+        class="mt-6 md:mt-0 lg:mt-10 text-center md:flex lg:block items-center md:w-full"
+      >
         <ManhwaAdd />
 
-        <ul class="mt-10">
-          <li class="my-4">
+        <ul class="mt-4 md:mt-0 lg:mt-10 md:flex lg:block items-center md:ml-4">
+          <li class="lg:my-4 m-2 lg:m-0">
             <NuxtLink
               to="/"
               class="inline-flex items-center text-gray-700 hover:text-gray-900"
@@ -33,7 +74,7 @@
             </NuxtLink>
           </li>
 
-          <li class="my-4">
+          <li class="lg:my-4 m-2 lg:m-0">
             <NuxtLink
               to="/settings"
               class="inline-flex items-center text-gray-700 hover:text-gray-900"
