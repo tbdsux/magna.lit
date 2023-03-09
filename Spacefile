@@ -1,5 +1,7 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
+icon: ./web.space/public/icon.png
+app_name: "magna.lit"
 micros:
   - name: magna
     src: web.space
