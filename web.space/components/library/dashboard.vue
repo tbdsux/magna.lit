@@ -40,7 +40,12 @@ const { data, pending } = useLazyAsyncData(
     </div>
 
     <div v-else>
-      <p>Fetching...</p>
+      <div class="grid grid-cols-5 gap-8">
+        <div
+          v-for="i in Array(5).keys()"
+          class="h-72 bg-gray-200 rounded-lg animate-pulse"
+        ></div>
+      </div>
     </div>
   </div>
 </template>
