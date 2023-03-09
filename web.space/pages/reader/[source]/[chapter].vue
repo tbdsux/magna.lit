@@ -53,9 +53,9 @@ useHead({
         <li v-for="item in data.data?.images" class="w-full h-full">
           <img
             referrerpolicy="no-referrer"
-            :src="item"
-            :alt="item"
-            class="w-full h-full object-cover rounded-lg"
+            :src="item.replace('http://', 'https://')"
+            :alt="item.replace('http://', 'https://')"
+            class="w-full h-full object-cover rounded-lg bg-gray-100"
           />
         </li>
       </ul>
