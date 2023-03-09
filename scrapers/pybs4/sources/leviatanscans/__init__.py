@@ -29,8 +29,12 @@ class LeviatanScans(BaseSource):
     def search(query: str):
         r = request(BASE_URL + f"?s={quote(query)}&post_type=wp-manga")
 
-        container = r.find("div", class_="search-wrap")
-        results_container = container.find_all("div", class_="row")
+        try:
+            container = r.find("div", class_="search-wrap")
+            results_container = container.find_all("div", class_="row")
+        except Exception as e:
+            print(e)
+            return BaseResponse(error=False, data=[])
 
         results = []
 
@@ -46,7 +50,7 @@ class LeviatanScans(BaseSource):
 
     @staticmethod
     def get_manhwa(manhwa: str):
-        main_url = BASE_URL + f"/manga/{manhwa}"
+        main_url = BASE_URL + f"/{manhwa.strip('/')}"
         r = request(main_url)
 
         container = r.find("div", class_="site-content")
@@ -122,5 +126,6 @@ class LeviatanScans(BaseSource):
                 "genres": _genres,
                 "summary": _summary,
                 "chapters": _chapters,
+                "url": main_url,
             },
         )

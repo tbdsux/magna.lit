@@ -1,0 +1,9 @@
+[
+  {
+    "name": "LeviatanScans",
+    "scraper": "pybs4",
+    "website": "https://en.leviatanscans.com/home/",
+    "source": "leviatanscans",
+    "working": true
+  }
+]

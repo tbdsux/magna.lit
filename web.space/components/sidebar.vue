@@ -1,36 +1,56 @@
+<script setup lang="ts">
+import { useWindowSize } from "vue-window-size";
+
+const isOpen = useState("mobileOpen", () => true);
+
+const { width } = useWindowSize();
+
+watch(width, (newWidth) => {
+  if (newWidth >= 768) {
+    isOpen.value = true;
+  }
+});
+</script>
+
 <template>
-  <nav class="py-4 w-1/6 mr-auto h-screen border-r fixed">
-    <div class="w-11/12 mx-auto text-center">
-      <h1 class="tracking-wide text-lg font-bold text-gray-700">
-        <span class="text-blue-500">magna</span>.lit
-      </h1>
+  <nav
+    class="py-4 w-full lg:w-1/5 xl:w-1/6 mr-auto lg:h-screen lg:border-r lg:fixed"
+  >
+    <div
+      class="w-11/12 mx-auto text-center md:flex items-center justify-between lg:block"
+    >
+      <div class="flex w-full items-center justify-between lg:justify-center">
+        <h1 class="tracking-wide text-lg font-bold text-gray-700">
+          <span class="text-blue-500">magna</span>.lit
+        </h1>
 
-      <div class="mt-10">
-        <div>
-          <button
-            class="inline-flex items-center bg-blue-400 hover:bg-blue-500 text-white duration-300 py-2 px-8 rounded-xl"
+        <button title="Menu" @click="isOpen = !isOpen" class="md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5"
+            aria-hidden="true"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-5 h-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"
-              />
-            </svg>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
 
-            <small class="ml-2">Add Manhwa </small>
-          </button>
-        </div>
+      <div
+        v-if="isOpen"
+        class="mt-6 md:mt-0 lg:mt-10 text-center md:flex lg:block items-center md:w-full"
+      >
+        <ManhwaAdd />
 
-        <ul class="mt-10">
-          <li class="my-4">
+        <ul class="mt-4 md:mt-0 lg:mt-10 md:flex lg:block items-center md:ml-4">
+          <li class="lg:my-4 m-2 lg:m-0">
             <NuxtLink
               to="/"
               class="inline-flex items-center text-gray-700 hover:text-gray-900"
@@ -54,7 +74,7 @@
             </NuxtLink>
           </li>
 
-          <li class="my-4">
+          <li class="lg:my-4 m-2 lg:m-0">
             <NuxtLink
               to="/settings"
               class="inline-flex items-center text-gray-700 hover:text-gray-900"
