@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { LinkIcon } from "@heroicons/vue/20/solid";
 import { encodeChapter } from "~~/lib/hash";
 import { joinParams } from "~~/lib/utils";
 import { useLibraryStore } from "~~/stores/library";
@@ -87,6 +88,20 @@ watch(data, (newData) => {
               </small>
             </li>
           </ul>
+
+          <div class="mt-4">
+            <a
+              :href="data?.manga.url"
+              target="_blank"
+              rel="noreferrer"
+              title="Visit Original Content"
+              class="m-1 inline-flex items-center py-1 px-8 uppercase bg-gray-500 hover:bg-gray-600 text-white duration-300 rounded-lg"
+            >
+              <LinkIcon aria-hidden="true" class="h-5 w-5" />
+
+              <small class="ml-2"> Visit </small>
+            </a>
+          </div>
         </div>
       </div>
 

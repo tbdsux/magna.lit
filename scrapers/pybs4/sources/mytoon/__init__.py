@@ -4,7 +4,7 @@ from sources.base import BaseSource
 from sources.response import BaseResponse
 from sources.utils import request
 
-BASE_URL = "https://mytoon.net/"
+BASE_URL = "https://mytoon.net"
 
 
 class MyToon(BaseSource):
