@@ -6,6 +6,7 @@
 ## Sources
 
 - [Leviatanscans](https://en.leviatanscans.com/home/)
+- [MyToon](https://mytoon.net/)
 
 ### Request new source?
 

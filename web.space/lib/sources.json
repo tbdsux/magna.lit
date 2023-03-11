@@ -5,5 +5,12 @@
     "website": "https://en.leviatanscans.com/home/",
     "source": "leviatanscans",
     "working": true
+  },
+  {
+    "name": "MyToon",
+    "scraper": "pybs4",
+    "website": "https://mytoon.net/",
+    "source": "mytoon",
+    "working": true
   }
 ]
