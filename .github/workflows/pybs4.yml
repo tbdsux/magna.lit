@@ -1,0 +1,33 @@
+name: Scraper - Pybs4
+
+on:
+  push:
+    paths:
+      - scrapers/pybs4/**
+  pull_request:
+    paths:
+      - scrapers/pybs4/**
+
+jobs:
+  test-scrapers:
+    defaults:
+      run:
+        working-directory: ./scrapers/pybs4
+    runs-on: ubuntu-latest 
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Test with pytest
+        run: |
+          pytest
