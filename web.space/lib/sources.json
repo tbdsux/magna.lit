@@ -12,5 +12,12 @@
     "website": "https://mytoon.net/",
     "source": "mytoon",
     "working": true
+  },
+  {
+    "name": "Manganato",
+    "scraper": "pybs4",
+    "website": "https://manganato.com/",
+    "source": "manganato",
+    "working": true
   }
 ]
