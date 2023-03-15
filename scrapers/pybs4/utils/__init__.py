@@ -17,32 +17,20 @@ class SourceTester:
     def run(self) -> bool:
         # run .search()
         logging.info("Running SEARCH method of class")
-        try:
-            r = self.cl.search(self.search_query)
-            logging.info(r.json())
-        except Exception as e:
-            logging.error(str(e))
-            return False
+        r = self.cl.search(self.search_query)
+        logging.info(r.json())
         logging.info("Done testing SEARCH method")
 
         # run .get_manhwa()
         logging.info("Running GET_MAHWA method")
-        try:
-            r = self.cl.get_manhwa(self.manhwa_slug)
-            logging.info(r.json())
-        except Exception as e:
-            logging.error(str(e))
-            return False
+        r = self.cl.get_manhwa(self.manhwa_slug)
+        logging.info(r.json())
         logging.info("Done testing GET_MANHWA method")
 
         # run .get_chapter()
         logging.info("Running GET_CHAPTER method")
-        try:
-            r = self.cl.get_chapter(self.chapter_url)
-            logging.info(r.json())
-        except Exception as e:
-            logging.error(str(e))
-            return False
+        r = self.cl.get_chapter(self.chapter_url)
+        logging.info(r.json())
         logging.info("Done GET_CHAPTER method")
 
         return True
