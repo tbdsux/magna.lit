@@ -19,5 +19,12 @@
     "website": "https://manganato.com/",
     "source": "manganato",
     "working": true
+  },
+  {
+    "name": "LuminousScans",
+    "scraper": "pybs4",
+    "website": "https://luminousscans.com/",
+    "source": "luminousscans",
+    "working": true
   }
 ]

@@ -7,6 +7,8 @@
 
 - [Leviatanscans](https://en.leviatanscans.com/home/)
 - [MyToon](https://mytoon.net/)
+- [Manganato](https://manganato.com/)
+- [LuminousScans](https://luminousscans.com/)
 
 ### Request new source?
 
