@@ -1,3 +1,4 @@
+from sources.flamescans import FlameScans
 from sources.leviatanscans import LeviatanScans
 from sources.luminousscans import LuminousScans
 from sources.manganato import Manganato
@@ -9,4 +10,5 @@ SOURCES = {
     "mytoon": MyToon,
     "manganato": Manganato,
     "luminousscans": LuminousScans,
+    "flamescans": FlameScans,
 }

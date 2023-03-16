@@ -26,5 +26,12 @@
     "website": "https://luminousscans.com/",
     "source": "luminousscans",
     "working": true
+  },
+  {
+    "name": "FlameScans",
+    "scraper": "pybs4",
+    "website": "https://flamescans.org/",
+    "source": "flamescans",
+    "working": true
   }
 ]

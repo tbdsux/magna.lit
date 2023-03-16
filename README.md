@@ -9,6 +9,7 @@
 - [MyToon](https://mytoon.net/)
 - [Manganato](https://manganato.com/)
 - [LuminousScans](https://luminousscans.com/)
+- [FlameScans](https://flamescans.org/)
 
 ### Request new source?
 
