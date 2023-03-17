@@ -101,6 +101,8 @@ watch(data, (newData) => {
 
               <small class="ml-2"> Visit </small>
             </a>
+
+            <LibraryRemoveManga :itemKey="data?.key ?? ''" />
           </div>
         </div>
       </div>

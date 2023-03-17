@@ -47,6 +47,16 @@ libraryRouter.get("/i/:itemKey", async (req, res) => {
   res.json({ error: false, data: r });
 });
 
+libraryRouter.delete("/i/:itemKey", async (req, res) => {
+  const { itemKey } = req.params;
+
+  await libDB.delete(itemKey);
+  res.json({
+    error: false,
+    message: "Successfully removed item from library.",
+  });
+});
+
 libraryRouter.post("/i/:itemKey", async (req, res) => {});
 
 export { libraryRouter };
