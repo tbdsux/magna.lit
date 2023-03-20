@@ -72,7 +72,7 @@ watch(selectedSource, (newsrc, oldsrc) => {
   <div>
     <button
       @click="openModal"
-      class="inline-flex items-center bg-blue-400 hover:bg-blue-500 text-white duration-300 py-1 lg:py-2 px-6 lg:px-8 rounded-xl"
+      class="inline-flex items-center bg-blue-400 hover:bg-blue-500 text-white duration-300 py-1 px-4 rounded-xl"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,9 @@ watch(selectedSource, (newsrc, oldsrc) => {
         />
       </svg>
 
-      <small class="ml-2 text-xs xl:text-[0.825rem]">Add Manhwa</small>
+      <small class="ml-2 hidden sm:block text-xs xl:text-[0.825rem]"
+        >Add Manhwa</small
+      >
     </button>
   </div>
 

@@ -1,9 +1,7 @@
 <template>
-  <main class="flex flex-col lg:flex-row items-start justify-between">
-    <Sidebar />
+  <main class="w-full min-h-screen pb-20">
+    <slot />
 
-    <div class="w-full lg:w-4/5 xl:w-5/6 ml-auto">
-      <slot />
-    </div>
+    <Menu />
   </main>
 </template>
