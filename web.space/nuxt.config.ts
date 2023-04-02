@@ -23,12 +23,5 @@ export default defineNuxtConfig({
       ],
     },
   },
-  runtimeConfig: {
-    public: {
-      rootUrl:
-        process.env.NODE_ENV === "development"
-          ? "http://localhost:4200"
-          : `http://${process.env.DETA_SPACE_APP_HOSTNAME}`,
-    },
-  },
+
 });

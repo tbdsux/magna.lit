@@ -27,10 +27,8 @@ const useLibraryStore = defineStore("library", {
 
   actions: {
     async fetchLibraryItems() {
-      const config = useRuntimeConfig();
-
       const r = await $fetch<InternalAPIProps<LibraryMangaProps[]>>(
-        `${config.public.rootUrl}/internal-api/library`,
+        `/internal-api/library`,
         {
           method: "GET",
           parseResponse: JSON.parse,
@@ -43,15 +41,13 @@ const useLibraryStore = defineStore("library", {
     },
 
     async fetchLibItem(key: string) {
-      const config = useRuntimeConfig();
-
       // reset
       this.current = null;
       this.currentChapters = null;
 
       // fetch key
       const k = await $fetch<InternalAPIProps<LibraryMangaProps | null>>(
-        `${config.public.rootUrl}/internal-api/library/i/${key}`,
+        `/internal-api/library/i/${key}`,
         {
           method: "GET",
           parseResponse: JSON.parse,

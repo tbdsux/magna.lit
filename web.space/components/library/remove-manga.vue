@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { toast } from "vue3-toastify";
 
-const config = useRuntimeConfig();
 
 const props = defineProps({
   itemKey: {

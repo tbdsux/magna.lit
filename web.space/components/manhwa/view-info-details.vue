@@ -7,7 +7,6 @@ import { ScraperAPIProps } from "~~/typings/api";
 import { LibraryMangaProps } from "~~/typings/library";
 import { ManhwaProps } from "~~/typings/manhwa";
 
-const config = useRuntimeConfig();
 
 const store = useLibraryStore();
 
