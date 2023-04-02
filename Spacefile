@@ -7,11 +7,13 @@ micros:
     src: web.space
     engine: nuxt
     primary: true
+    dev: "pnpm run dev"
 
   - name: scraper-pybs4
     src: ./scrapers/pybs4
     path: scrapers-pybs4
     engine: python3.9
+    dev: "venv/bin/uvicorn main:app --reload --port=${PORT}"
 
   - name: internal-api
     src: ./internal-api
@@ -22,3 +24,4 @@ micros:
     include:
       - dist
     run: "node dist/main.js"
+    dev: "pnpm run dev"

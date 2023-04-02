@@ -18,21 +18,17 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/png",
-          href: "/icon.png"
-        }
+          href: "/icon.png",
+        },
       ],
     },
   },
   runtimeConfig: {
     public: {
-      apiPybs4:
+      rootUrl:
         process.env.NODE_ENV === "development"
-          ? "http://localhost:8000"
-          : "/scrapers-pybs4",
-      internalApi:
-        process.env.NODE_ENV === "development"
-          ? "http://localhost:8080"
-          : "/internal-api",
+          ? "http://localhost:4200"
+          : `http://${process.env.DETA_SPACE_APP_HOSTNAME}`,
     },
   },
 });

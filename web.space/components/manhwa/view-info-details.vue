@@ -27,7 +27,7 @@ const params = new URLSearchParams({
   source: props.source,
 });
 const { pending, data } = useLazyFetch<ScraperAPIProps<ManhwaProps>>(
-  `${config.public.apiPybs4}/manhwa?${params.toString()}`
+  `/scrapers-pybs4/manhwa?${params.toString()}`
 );
 
 const emit = defineEmits(["closeModal"]);
@@ -48,7 +48,7 @@ const addManhwa = async () => {
     date_added: new Date().getTime(),
   };
 
-  const r = await fetch(`${config.public.internalApi}/library`, {
+  const r = await fetch("/internal-api/library", {
     method: "PUT",
     headers: {
       "content-type": "application/json",

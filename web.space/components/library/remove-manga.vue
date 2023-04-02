@@ -16,12 +16,9 @@ const removeItem = async () => {
   try {
     removing.value = true;
 
-    const r = await fetch(
-      `${config.public.internalApi}/library/i/${props.itemKey}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const r = await fetch(`/internal-api/library/i/${props.itemKey}`, {
+      method: "DELETE",
+    });
 
     const resp = await r.json();
 
