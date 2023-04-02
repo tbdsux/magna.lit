@@ -7,6 +7,8 @@ import { useLibraryStore } from "~~/stores/library";
 const route = useRoute();
 const store = useLibraryStore();
 
+await nextTick();
+
 const { key } = route.params;
 const { data, pending } = useAsyncData(
   async () => await store.fetchLibItem(joinParams(key))

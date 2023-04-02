@@ -6,6 +6,8 @@ import { ChapterProps } from "~~/typings/manhwa";
 
 const route = useRoute();
 
+await nextTick();
+
 const { source, chapter } = route.params;
 
 const params = new URLSearchParams({
