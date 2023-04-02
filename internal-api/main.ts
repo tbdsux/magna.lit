@@ -16,5 +16,5 @@ app.get("/", (req, res) => {
 app.use("/library", libraryRouter);
 
 app.listen(port, () => {
-  console.log("Internal API is running at http://localhost:8080");
+  console.log(`Internal API is running at http://localhost:${port}`);
 });

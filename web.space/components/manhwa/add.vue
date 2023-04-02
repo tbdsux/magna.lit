@@ -17,8 +17,6 @@ import { allSources } from "~~/lib/data";
 import { ScraperAPIProps } from "~~/typings/api";
 import { SearchResultsProps } from "~~/typings/manhwa";
 
-const config = useRuntimeConfig();
-
 const inputQuery = ref("");
 
 const selectedSource = ref<typeof allSources[0]>(allSources[0]);
@@ -43,9 +41,7 @@ const searchManhwas = async () => {
   searching.value = true;
   searchFailed.value = false;
 
-  const r = await fetch(
-    `${config.public.apiPybs4}/search?${params.toString()}`
-  );
+  const r = await fetch(`/scrapers-pybs4/search?${params.toString()}`);
 
   const data: ScraperAPIProps<SearchResultsProps[]> = await r.json();
   searching.value = false;

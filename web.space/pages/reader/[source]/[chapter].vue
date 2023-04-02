@@ -5,7 +5,6 @@ import { ScraperAPIProps } from "~~/typings/api";
 import { ChapterProps } from "~~/typings/manhwa";
 
 const route = useRoute();
-const config = useRuntimeConfig();
 
 const { source, chapter } = route.params;
 
@@ -14,12 +13,23 @@ const params = new URLSearchParams({
   source: joinParams(source),
 });
 
-const { data } = await useFetch<ScraperAPIProps<ChapterProps>>(
-  `${config.public.apiPybs4}/chapter-manhwa?${params.toString()}`
+const { data } = await useLazyFetch<ScraperAPIProps<ChapterProps>>(
+  `/scrapers-pybs4/chapter-manhwa?${params.toString()}`,
+  {
+    server: false,
+  }
 );
 
 useHead({
-  title: `${data.value?.data?.title}`,
+  title: `Loading Chapter... | magna.lit`,
+});
+
+watch(data, (newData) => {
+  if (newData != null) {
+    useHead({
+      title: `${newData?.data?.title}`,
+    });
+  }
 });
 </script>
 

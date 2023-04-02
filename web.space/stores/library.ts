@@ -30,7 +30,7 @@ const useLibraryStore = defineStore("library", {
       const config = useRuntimeConfig();
 
       const r = await $fetch<InternalAPIProps<LibraryMangaProps[]>>(
-        `${config.public.internalApi}/library`,
+        `${config.public.rootUrl}/internal-api/library`,
         {
           method: "GET",
           parseResponse: JSON.parse,
@@ -51,7 +51,7 @@ const useLibraryStore = defineStore("library", {
 
       // fetch key
       const k = await $fetch<InternalAPIProps<LibraryMangaProps | null>>(
-        `${config.public.internalApi}/library/i/${key}`,
+        `${config.public.rootUrl}/internal-api/library/i/${key}`,
         {
           method: "GET",
           parseResponse: JSON.parse,
@@ -70,7 +70,7 @@ const useLibraryStore = defineStore("library", {
       });
 
       const r = await $fetch<ScraperAPIProps<ManhwaProps>>(
-        `${config.public.apiPybs4}/manhwa?${params.toString()}`,
+        `/scrapers-pybs4/manhwa?${params.toString()}`,
         {
           method: "GET",
           parseResponse: JSON.parse,

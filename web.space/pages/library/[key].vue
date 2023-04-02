@@ -8,21 +8,15 @@ const route = useRoute();
 const store = useLibraryStore();
 
 const { key } = route.params;
-const { data, pending, error } = useLazyAsyncData(
-  "item",
+const { data, pending } = useAsyncData(
   async () => await store.fetchLibItem(joinParams(key))
 );
-
-// if (data.value?.data == null) {
-//   throw createError({
-//     statusCode: 404,
-//     message: "Manhwa / manga key does not exist in your library.",
-//   });
-// }
 
 useHead({ title: "Loading... | magna.lit" });
 
 watch(data, (newData) => {
+  console.log(newData);
+
   if (newData != null) {
     useHead({ title: `${newData.manga.title} | magna.lit` });
   }
