@@ -70,6 +70,7 @@ const closeModal = () => (open.value = false);
         @closeModal="closeModal"
         :slug="props.slug"
         :source="props.source"
+        :backup-image="image"
       />
     </DialogPanel>
   </Modal>

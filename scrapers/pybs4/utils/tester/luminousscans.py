@@ -8,9 +8,9 @@ from utils import SourceTester  # noqa: E402
 
 test = SourceTester(
     cl=LuminousScans,
-    search_query="gods",
-    manhwa_slug="series/1677679234-level-up-with-all-gods",
-    chapter_url="https://luminousscans.com/leveling-up-with-the-gods-chapter-73/",
+    search_query="demon",
+    manhwa_slug="series/1680246102-heavenly-demon-chronicles",
+    chapter_url="https://luminousscans.com/1680246102-the-chronicles-of-heavenly-demon-chapter-201/",
 )
 
 

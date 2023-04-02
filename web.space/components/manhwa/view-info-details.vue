@@ -7,7 +7,6 @@ import { ScraperAPIProps } from "~~/typings/api";
 import { LibraryMangaProps } from "~~/typings/library";
 import { ManhwaProps } from "~~/typings/manhwa";
 
-
 const store = useLibraryStore();
 
 const props = defineProps({
@@ -16,6 +15,11 @@ const props = defineProps({
     required: true,
   },
   source: {
+    type: String,
+    required: true,
+  },
+  // Use image from search result if no image return by `get-chapter`
+  backupImage: {
     type: String,
     required: true,
   },
@@ -73,8 +77,17 @@ const addManhwa = async () => {
     <div class="flex flex-col md:flex-row items-start justify-between">
       <div class="h-72 w-48">
         <img
+          v-if="data?.data?.image"
           referrerpolicy="no-referrer"
           :src="data?.data?.image"
+          :alt="data?.data?.title"
+          class="w-full h-full object-cover rounded-lg"
+        />
+
+        <img
+          v-else
+          referrerpolicy="no-referrer"
+          :src="backupImage"
           :alt="data?.data?.title"
           class="w-full h-full object-cover rounded-lg"
         />

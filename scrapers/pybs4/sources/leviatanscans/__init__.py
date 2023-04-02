@@ -56,41 +56,30 @@ class LeviatanScans(BaseSource):
         container = r.find("div", class_="site-content")
 
         # get manhwa title
-        _title = container.find("div", id="manga-title").text.strip()
-
-        _profile_container = container.find("div", class_="profile-manga")
+        _title = container.find("div", class_="post-title").text.strip()
 
         # get manhwa image
-        _image = (
-            _profile_container.find("div", class_="summary_image")
-            .find("img")
-            .get("src")
+        _image = container.find("div", class_="summary_image").find("img").get("src")
+
+        _tags_containers = container.find("div", class_="summary_content")
+        _all_tags_details = _tags_containers.find_all("div", class_="post-content_item")
+
+        _authors = [
+            i.get_text().strip()
+            for i in _tags_containers.find("div", class_="manga-authors").find_all("a")
+        ]
+        _summary = (
+            _tags_containers.find("div", class_="manga-summary").get_text().strip()
         )
 
-        _all_tags_details = _profile_container.find_all(
-            "div", class_="post-content_item"
-        )
-
-        _authors = []
         _genres = []
-        _summary = ""
-
         for i in _all_tags_details:
             _tag = i.find("h5").text.strip().lower()
-
-            # get author
-            if "author" in _tag:
-                _r_authors = i.find_all("a")
-                _authors = [k.text.strip() for k in _r_authors]
 
             # get genre
             if "genre" in _tag:
                 _r_genres = i.find_all("a")
-                _genres = [k.text.strip() for k in _r_genres]
-
-            # get summary
-            if "summary" in _tag:
-                _summary = i.find("p").text.strip()
+                _genres = [k.get_text().strip() for k in _r_genres]
 
         # get chapters
         _chapters_r = request_post(main_url + "/ajax/chapters")
