@@ -137,7 +137,7 @@ watch(selectedSource, (newsrc, oldsrc) => {
                 leave-to-class="opacity-0"
               >
                 <ListboxOptions
-                  class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-[0.825rem]"
+                  class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-[0.825rem] z-40"
                 >
                   <ListboxOption
                     v-slot="{ active, selected }"

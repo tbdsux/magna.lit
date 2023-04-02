@@ -81,7 +81,7 @@ const addManhwa = async () => {
           referrerpolicy="no-referrer"
           :src="data?.data?.image"
           :alt="data?.data?.title"
-          class="w-full h-full object-cover rounded-lg"
+          class="w-full h-full object-cover rounded-lg z-30"
         />
 
         <img
@@ -89,7 +89,7 @@ const addManhwa = async () => {
           referrerpolicy="no-referrer"
           :src="backupImage"
           :alt="data?.data?.title"
-          class="w-full h-full object-cover rounded-lg"
+          class="w-full h-full object-cover rounded-lg z-30"
         />
       </div>
 

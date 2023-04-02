@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed bottom-8 inset-x-0 border bg-neutral-100 border-gray-100 w-max p-4 rounded-2xl flex items-center mx-auto shadow-xl"
+    class="fixed bottom-8 inset-x-0 border bg-neutral-100 border-gray-200 w-max p-4 rounded-2xl flex items-center mx-auto shadow-xl"
   >
     <h1 class="tracking-wide font-bold text-gray-700">
       <span class="text-blue-500">magna</span>.lit
